@@ -6,7 +6,7 @@
 //   By: rabril-h <rabril-h@student.42barc...>      +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2023/10/08 14:50:21 by rabril-h          #+#    #+#             //
-//   Updated: 2023/10/08 18:42:24 by rabril-h         ###   ########.fr       //
+//   Updated: 2023/10/08 19:51:08 by rabril-h         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -17,18 +17,18 @@
 
 Fixed::Fixed()
 {
-	_rawBits = 0;
+	_intVal = 0;
 	return ;
 }
 
 Fixed::Fixed(const int i)
 {
-	this->_rawBits = i << _bits;
+	this->_intVal = i << _bits;
 }
 
 Fixed::Fixed(const float f)
 {
-	this->_rawBits = roundf(f * (1 << _bits));
+	this->_intVal = roundf(f * (1 << _bits));
 }
 
 Fixed::Fixed(const Fixed &fixed)
@@ -51,7 +51,7 @@ Fixed::~Fixed()
 Fixed &Fixed::operator=(const Fixed &fixed)
 {
 	if (this != &fixed)
-		this->_rawBits = fixed.getRawBits();
+		this->_intVal = fixed.getRawBits();
 	return (*this);
 }
 
@@ -60,32 +60,32 @@ Fixed &Fixed::operator=(const Fixed &fixed)
 
 bool Fixed::operator>(const Fixed &fixed) const
 {
-	return (this->_rawBits > fixed.getRawBits());
+	return (this->_intVal > fixed.getRawBits());
 }
 
 bool Fixed::operator<(const Fixed &fixed) const
 {
-	return (this->_rawBits < fixed.getRawBits());
+	return (this->_intVal < fixed.getRawBits());
 }
 
 bool Fixed::operator>=(const Fixed &fixed) const
 {
-	return (this->_rawBits >= fixed.getRawBits());
+	return (this->_intVal >= fixed.getRawBits());
 }
 
 bool Fixed::operator<=(const Fixed &fixed) const
 {
-	return (this->_rawBits <= fixed.getRawBits());
+	return (this->_intVal <= fixed.getRawBits());
 }
 
 bool Fixed::operator==(const Fixed &fixed) const
 {
-	return (this->_rawBits == fixed.getRawBits());
+	return (this->_intVal == fixed.getRawBits());
 }
 
 bool Fixed::operator!=(const Fixed &fixed) const
 {
-	return (this->_rawBits != fixed.getRawBits());
+	return (this->_intVal != fixed.getRawBits());
 }
 
 // Operations
@@ -121,7 +121,7 @@ Fixed	Fixed::operator++(int)
 
 Fixed	Fixed::operator++(void)
 {
-	++this->_rawBits;
+	++this->_intVal;
 	return (*this);
 }
 
@@ -134,7 +134,7 @@ Fixed	Fixed::operator--(int)
 
 Fixed	Fixed::operator--(void)
 {
-	--this->_rawBits;
+	--this->_intVal;
 	return (*this);
 }
 
@@ -143,12 +143,12 @@ Fixed	Fixed::operator--(void)
 
 void Fixed::setRawBits(const int raw)
 {
-	this->_rawBits = raw;
+	this->_intVal = raw;
 }
 
 int Fixed::getRawBits(void) const
 {
-	return (this->_rawBits);
+	return (this->_intVal);
 }
 
 float Fixed::toFloat(void) const
@@ -160,9 +160,6 @@ int Fixed::toInt(void) const
 {
 	return (static_cast<int>(this->getRawBits()) >> _bits);
 }
-
-
-
 
 
 Fixed Fixed::max(Fixed &a, Fixed &b)
@@ -192,7 +189,6 @@ const Fixed Fixed::min(const Fixed &a, const Fixed &b)
 		return (a);
 	return (b);
 }
-
 
 
 // Overflow

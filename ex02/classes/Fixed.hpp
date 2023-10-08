@@ -6,7 +6,7 @@
 //   By: rabril-h <rabril-h@student.42barc...>      +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2023/10/08 14:41:42 by rabril-h          #+#    #+#             //
-//   Updated: 2023/10/08 18:38:37 by rabril-h         ###   ########.fr       //
+//   Updated: 2023/10/08 19:13:37 by rabril-h         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -68,7 +68,7 @@ public:
 
 private:
 
-	int _rawBits;
+	int _intVal;
 	static const int _bits = 8;
 
 };
