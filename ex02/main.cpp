@@ -6,7 +6,7 @@
 //   By: rabril-h <rabril-h@student.42barc...>      +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2023/10/08 14:38:58 by rabril-h          #+#    #+#             //
-//   Updated: 2023/10/08 18:26:20 by rabril-h         ###   ########.fr       //
+//   Updated: 2023/10/09 20:29:35 by rabril-h         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -30,7 +30,8 @@ int main( void ) {
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
 
-	std::cout << std::endl << "OTHER TESTS" << std::endl;
+	std::cout << std::endl << "MORE TESTS" << std::endl;
+	std::cout << std::endl << "++++++++++++++++++++++++" << std::endl << std::endl;
 	a = 20;
 	c = 900;
 	std::cout << "a+b= " << a+b << std::endl;

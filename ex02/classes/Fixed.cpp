@@ -6,7 +6,7 @@
 //   By: rabril-h <rabril-h@student.42barc...>      +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2023/10/08 14:50:21 by rabril-h          #+#    #+#             //
-//   Updated: 2023/10/08 19:51:08 by rabril-h         ###   ########.fr       //
+//   Updated: 2023/10/09 20:36:02 by rabril-h         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -18,21 +18,25 @@
 Fixed::Fixed()
 {
 	_intVal = 0;
+	std::cout << "Default constructor called" << std::endl;
 	return ;
 }
 
 Fixed::Fixed(const int i)
 {
+	std::cout << "Int constructor called" << std::endl;
 	this->_intVal = i << _bits;
 }
 
 Fixed::Fixed(const float f)
 {
+	std::cout << "Float constructor called" << std::endl;
 	this->_intVal = roundf(f * (1 << _bits));
 }
 
 Fixed::Fixed(const Fixed &fixed)
 {
+	std::cout << "Copy constructor called" << std::endl;
 	*this = fixed;
 }
 
@@ -41,6 +45,7 @@ Fixed::Fixed(const Fixed &fixed)
 
 Fixed::~Fixed()
 {
+	std::cout << "Default destructor called" << std::endl;
 	return ;
 }
 
@@ -50,6 +55,7 @@ Fixed::~Fixed()
 
 Fixed &Fixed::operator=(const Fixed &fixed)
 {
+	std::cout << "Asignation operator called" << std::endl;
 	if (this != &fixed)
 		this->_intVal = fixed.getRawBits();
 	return (*this);
@@ -60,31 +66,37 @@ Fixed &Fixed::operator=(const Fixed &fixed)
 
 bool Fixed::operator>(const Fixed &fixed) const
 {
+	//std::cout << "Greater than operator called" << std::endl;
 	return (this->_intVal > fixed.getRawBits());
 }
 
 bool Fixed::operator<(const Fixed &fixed) const
 {
+	//std::cout << "Lesser than operator called" << std::endl;
 	return (this->_intVal < fixed.getRawBits());
 }
 
 bool Fixed::operator>=(const Fixed &fixed) const
 {
+	//std::cout << "Greater or equal than operator called" << std::endl;
 	return (this->_intVal >= fixed.getRawBits());
 }
 
 bool Fixed::operator<=(const Fixed &fixed) const
 {
+	//std::cout << "Lesser or equal than operator called" << std::endl;
 	return (this->_intVal <= fixed.getRawBits());
 }
 
 bool Fixed::operator==(const Fixed &fixed) const
 {
+	//std::cout << "Double equal than operator called" << std::endl;
 	return (this->_intVal == fixed.getRawBits());
 }
 
 bool Fixed::operator!=(const Fixed &fixed) const
 {
+	//std::cout << "Not equal than operator called" << std::endl;
 	return (this->_intVal != fixed.getRawBits());
 }
 
