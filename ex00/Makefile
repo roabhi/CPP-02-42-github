@@ -17,7 +17,7 @@ SRCS = main.cpp \
 				./classes/Fixed.cpp \
 
 
-HEADER = Fixed.h \
+HEADERS = Fixed.h \
 				./classes/Fixed.hpp
 
 CC = c++
